@@ -3,7 +3,7 @@ package services.crud.infrastructure.shared.dto.UserDto;
 public class UserDto {
     private String name;
     private String lastName;
-    private Boolean indicted;
+    private boolean indicted;
 
     public String getName() {
         return name;
@@ -21,11 +21,11 @@ public class UserDto {
         this.lastName = lastName;
     }
 
-    public Boolean getIndicted() {
+    public boolean isIndicted() {
         return indicted;
     }
 
-    public void setIndicted(Boolean indicted) {
+    public void setIndicted(boolean indicted) {
         this.indicted = indicted;
     }
 }

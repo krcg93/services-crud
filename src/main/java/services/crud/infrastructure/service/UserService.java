@@ -1,5 +1,6 @@
 package services.crud.infrastructure.service;
 
+import org.modelmapper.TypeToken;
 import reactor.core.publisher.Flux;
 import services.crud.domain.model.Users.User;
 import services.crud.domain.model.Users.UserAdd;
@@ -15,6 +16,7 @@ import services.crud.infrastructure.shared.dto.UserDto.UsersDto;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.util.List;
 
 @Singleton
 public class UserService implements UserI {
@@ -57,8 +59,9 @@ public class UserService implements UserI {
     }
 
     @Override
-    public Mono<Users> getUsers() {
+    public Mono<List<User>> getUsers() {
         return firebase.getUsers()
-                .map(users -> mapper.map(ConverterUser.mapperUser(users), Users.class));
+                .map(users -> mapper.map(ConverterUser.mapperUser(users), new TypeToken<List<UserDto>>() {
+                }.getType()));
     }
 }

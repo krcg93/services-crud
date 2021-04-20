@@ -9,7 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 public class ConverterUser {
-    public static UsersDto mapperUser(Object users)
+    public static List<UserDto> mapperUser(Object users)
     {
         Gson gson = new Gson();
         List<UserDto> userDtos = new ArrayList<>();
@@ -19,7 +19,6 @@ public class ConverterUser {
             UserDto data = new Gson().fromJson(json, UserDto.class);
             userDtos.add(data);
         });
-        UsersDto usersDto = new UsersDto(userDtos);
-        return usersDto;
+        return userDtos;
     }
 }

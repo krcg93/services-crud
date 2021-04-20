@@ -8,6 +8,7 @@ import services.crud.domain.model.Users.Users;
 import services.crud.domain.service.dependency.UserI;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
 
 
 public class UserService {
@@ -34,7 +35,7 @@ public class UserService {
                 .onErrorResume(Mono::error);
     }
 
-    public Mono<Users> getUsers(){
+    public Mono<List<User>> getUsers(){
         return userI.getUsers()
                 .onErrorResume(Mono::error);
     }

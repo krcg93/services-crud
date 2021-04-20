@@ -41,8 +41,9 @@ public class UserCtr {
     }
 
     @Get(value = "users", produces = MediaType.APPLICATION_JSON)
-    public Mono<UsersDto> getUser() {
+    public Mono<List<UserDto>> getUser() {
         return userService.getUsers()
-                .map(user -> mapper.map(user, UsersDto.class));
+                .map(users -> mapper.map(users, new TypeToken<List<UserDto>>() {
+                }.getType()));
     }
 }

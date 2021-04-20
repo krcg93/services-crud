@@ -6,6 +6,7 @@ import services.crud.domain.model.Users.UserAdd;
 import services.crud.domain.model.Users.UserUpdate;
 import services.crud.domain.model.Users.Users;
 
+import java.util.List;
 
 
 public interface UserI {
@@ -14,6 +15,6 @@ public interface UserI {
 
     Mono<Users> updateUsers(UserUpdate userUpdate);
 
-    Mono<Users> getUsers();
+    Mono<List<User>> getUsers();
 
 }
